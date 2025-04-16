@@ -44,6 +44,30 @@ function Unpack() {
     }
   }
 
+  async function handleDelete(itemNumber) {
+    try {
+      const response = await axios.post(
+        `${backendURL}/deleteItem`,
+        { itemNumber },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      if (response.status === 200) {
+        alert("Deleted successfully!!!");
+        setItemName("");
+        setDeatails(details.filter((item) => item.itemNumber !== itemNumber));
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Deleting failed");
+    }
+  }
+
   return (
     <div>
       <div className="heading">
@@ -74,6 +98,7 @@ function Unpack() {
                 <th>Item ID</th>
                 <th>Item Name</th>
                 <th>Box Number</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -84,6 +109,7 @@ function Unpack() {
                   <td>{item.itemNumber || "—"}</td>
                   <td>{item.itemName}</td>
                   <td>{item.boxNumber}</td>
+                  <td><button onClick={()=>handleDelete(item.itemNumber)}>Unpack</button></td>
                 </tr>
               ))}
             </tbody>
