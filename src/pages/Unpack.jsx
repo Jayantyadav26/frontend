@@ -59,14 +59,14 @@ function Unpack() {
   
       if (response.status === 200) {
         alert("Deleted successfully!!!");
-        setItemName("");
-        setDeatails(details.filter((item) => item.itemNumber !== itemNumber));
+        setItems(items.filter((item) => item.itemNumber !== itemNumber));
       }
     } catch (err) {
       console.error(err);
       alert("Deleting failed");
     }
   }
+  
 
   return (
     <div>
