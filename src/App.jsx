@@ -24,9 +24,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
 import Dashboard from './pages/Dashboard.jsx';
-import Packing from './pages/packing.jsx';
-import Unpack from './pages/unpack.jsx';
-import SearchItem from './pages/searchItem.jsx';
+import Packing from './pages/Packing.jsx';
+import Unpack from './pages/Unpack.jsx';
+import SearchItem from './pages/SearchItem.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Delete from './pages/Delete.jsx';
 
